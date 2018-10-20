@@ -28,4 +28,11 @@ services:
       - PGDATABASE=postgres
       - PGPASSWORD=postgress_password_change
   postgres:
-    image: 'postgres:latest'
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./postgres
+    restart: always
+    volumes:
+      - ./postgres/pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'

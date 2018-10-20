@@ -1,0 +1,3 @@
+FROM postgres
+WORKDIR "app"
+COPY ./gzclp_setup.sql /docker-entrypoint-initdb.d/
