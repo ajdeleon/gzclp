@@ -17,17 +17,15 @@ const pgClient = new Pool({
   password: keys.pgPassword,
 })
 
-pgClient.query('CREATE TABLE IF NOT EXISTS users (id INT, name TEXT)').catch(err => console.log(err))
+pgClient.query('CREATE TABLE IF NOT EXISTS users (id serial PRIMARY KEY, first_name varchar, last_name varchar, email varchar, username varchar)').catch(err => console.log(err))
 
 app.get('/hello', (req, res) => {
   res.send('This is express. Hi.')
 })
 
 app.post('/users', async (req, res) => {
-  const id = req.body.id
-  const name = req.body.name
-
-  pgClient.query('INSERT INTO users(id, name) VALUES($1, $2)', [id, name])
+  const {id, first_name, last_name, email, username } = req.body
+  pgClient.query('INSERT INTO users(id, first_name, last_name, email, username) VALUES($1, $2, $3, $4, $5)', [id, first_name, last_name, email, username])
 
   res.send('Posted successfully')
 })
