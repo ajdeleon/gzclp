@@ -9,10 +9,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="vh-100">
           <Header />
-          <Route path="/a1" render={() => <Workout t1lift="Squat" t2lift="Bench" t3lift="Lat Pulldown"/>}/>
-          <Route path="/b1" render={() => <Workout t1lift="Overhead Press" t2lift="Deadlift" t3lift="Dumbbell Row"/>}/>
-          <Route path="/a2" render={() => <Workout t1lift="Bench" t2lift="Squat" t3lift="Lat Pulldown"/>}/>
-          <Route path="/b2" render={() => <Workout t1lift="Deadlift" t2lift="Overhead Press" t3lift="Dumbbell Row"/>}/>
+          <Route path="/a1" render={() => <Workout lifts={['Squat', 'Bench', 'Lat Pulldown']} />}/>
+          <Route path="/b1" render={() => <Workout lifts={['Overhead Press', 'Deadlift', 'Dumbbell Row']} />}/>
+          <Route path="/a2" render={() => <Workout lifts={['Bench', 'Squat', 'Lat Pulldown']} />}/>
+          <Route path="/b2" render={() => <Workout lifts={['Deadlift', 'Overhead Press', 'Lat Pulldown']} />}/>
         </div>
       </BrowserRouter>
     )

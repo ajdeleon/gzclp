@@ -3,7 +3,7 @@ import React from 'react'
 const TierContainer = ({ tier, lift }) => (
   <div className="flex center w-90 h-25 mh2">
     <div className="flex outline w-25 f2 items-center justify-center">
-      {tier}
+      t{tier}
     </div>
     <div className="flex flex-column outline w-50 f3 items-center pt2">
       <div className=" mb2">{lift}</div>

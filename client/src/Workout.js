@@ -1,12 +1,16 @@
 import React from 'react'
 import TierContainer from './components/TierContainer'
 
-const Workout = ({t1lift, t2lift, t3lift}) => (
-  <>
-    <TierContainer tier="t1" lift={t1lift}/>
-    <TierContainer tier="t2" lift={t2lift}/>
-    <TierContainer tier="t3" lift={t3lift}/>
-  </>
-)
+// const Workout = ({lifts}) => (
+//   {lifts.map((lift, i) => {
+//     return <TierContainer tier={i + 1} lift={lift}/>
+//   })}
+// )
+
+const Workout = ({lifts}) => {
+  return lifts.map((lift, index) => {
+    return <TierContainer tier={index + 1} lift={lift} />
+  })
+}
 
 export default Workout
