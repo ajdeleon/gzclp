@@ -18,3 +18,7 @@ Workouts
 - POST /api/workouts
 - GET /api/workouts/:id
 - PUT /api/workouts/:id
+
+Lifts
+
+- GET /api/workouts/:id/lifts
