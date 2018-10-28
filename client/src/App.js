@@ -8,7 +8,9 @@ import * as actions from './actions'
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser(1)
+    this.props.fetchWorkout(1)
   }
+
   render() {
     return (
       <BrowserRouter>

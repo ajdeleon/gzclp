@@ -53,7 +53,7 @@ app.get('/users/:id', async (req, res) => {
 
 app.get('/users/:id/workouts', async (req, res) => {
   const values = await pgClient.query(
-    'SELECT lifts.id, lifts.user_id, lifts.weight, lifts.workout_id, lifts.tier, lift_names.name AS lift_name, reps.name AS reps FROM lifts JOIN lift_names ON lifts.lift_name_id = lift_names.id JOIN reps ON lifts.rep_id = reps.id WHERE lifts.user_id = $1',
+    'SELECT lifts.id, lifts.user_id, lifts.weight, lifts.workout_id, workouts.name AS workout_name, lifts.tier, lift_names.name AS lift_name, reps.name AS reps FROM lifts JOIN lift_names ON lifts.lift_name_id = lift_names.id JOIN reps ON lifts.rep_id = reps.id JOIN workouts ON lifts.workout_id = workouts.id WHERE lifts.user_id = $1',
     [req.params.id]
   )
 
