@@ -30,7 +30,7 @@ app.get('/hello', (req, res) => {
 app.post('/users', async (req, res) => {
   const { id, first_name, last_name, email, username } = req.body
   pgClient.query(
-    'INSERT INTO users(id, first_name, last_name, email, username) VALUES($1, $2, $3, $4, $5)',
+    'INSERT INTO users(id, irst_name, last_name, email, username) VALUES($1, $2, $3, $4, $5)',
     [id, first_name, last_name, email, username]
   )
 
@@ -49,6 +49,14 @@ app.get('/users/:id', async (req, res) => {
   ])
 
   res.send(values.rows)
+})
+
+app.put('/lifts/:id/increment', async (req, res) => {
+  pgClient.query('UPDATE lifts SET weight = weight + 5 WHERE id=$1', [
+    req.params.id,
+  ])
+
+  res.send('updated')
 })
 
 app.get('/users/:id/workouts', async (req, res) => {
